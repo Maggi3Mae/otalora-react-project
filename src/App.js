@@ -6,11 +6,12 @@ import ItemListContainer from './componentes/ItemListContainer';
 
 
 function App() {
+  let saludo = "Hola, estas entrando en la mejor tienda del mundo mundial"
   return (
     <>
       <NavBar/>
       <div className="container">
-        <ItemListContainer greeting={"Hola, estas entrando en la mejor tienda del mundo mundial"}/>
+        <ItemListContainer greeting={saludo}/>
       </div>
     </>
   );
