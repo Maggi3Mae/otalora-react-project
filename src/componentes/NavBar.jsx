@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap'
+import CartWidget from './CartWidget'
 
 
 function NavBar() {
@@ -15,13 +16,14 @@ function NavBar() {
                 <NavDropdown.Item href="#action/3.1">PS4</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">XBOX ONE</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Nintendo Switch</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown>            
             </Nav>
-            <Form inline>
+            <Form inline>            
             <FormControl type="text" placeholder="Buscar en la tienda" className="mr-sm-2" />
             <Button variant="outline-success">Buscar</Button>
             </Form>
         </Navbar.Collapse>
+        <CartWidget/> 
         </Navbar>
     )
 }
