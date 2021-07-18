@@ -1,18 +1,24 @@
 import React from 'react'
-import { Alert } from 'react-bootstrap'
+import { Alert, Container } from 'react-bootstrap';
+import ItemCount from './ItemCount';
+
+const handleCount =(amou)=> {
+    alert(`Usted ha agregado ${amou} items al carrito`)
+}
 
 function ItemListContainer({greeting}) {
     return (
-        <>
+        <Container>
             {[
             'warning',
             ].map((variant, idx) => (
-                //porfa ignora esas key y eso es que la documentación de react-bootstrap lo coloca así :p
             <Alert className="mt-5" key={idx} variant={variant}> 
                 {greeting}
             </Alert>
             ))}
-        </>
+            {/* acá empieza elcontador*/}
+            <ItemCount stock={10} initial={1} onAdd={handleCount}/>
+        </Container>
     )
 }
 
