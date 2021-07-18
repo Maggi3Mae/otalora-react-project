@@ -39,7 +39,7 @@ function ItemListContainer({greeting}) {
                 gameUrl: "https://www.igdb.com/games/hades--1"
             },
             {
-                id: 3, 
+                id: 4, 
                 title: "Portal 2",
                 price: 65000,
                 picUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rs4.jpg",
