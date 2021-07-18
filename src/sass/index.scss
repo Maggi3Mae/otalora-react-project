@@ -1,0 +1,29 @@
+//colores
+$morado: #5d2e46;
+$oscuro: #2d2a32;
+$b-color: #18206f;
+
+
+body {
+    background-color: $morado !important;
+}
+.navbar {
+    background-color: $oscuro;
+    p,li,a,span {
+        color: #fff !important;
+    }
+    .dropdown-menu {
+        background-color: $oscuro;
+    }
+}
+.container {
+    padding-bottom: 60px;
+    .card {
+        border: none;
+        box-shadow: 0 0 10px rgba(#000000, .2);
+    }
+    .btn-primary {
+        background-color: $b-color;
+        border-color: $b-color;
+    }
+}
