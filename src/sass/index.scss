@@ -3,9 +3,18 @@ $morado: #5d2e46;
 $oscuro: #2d2a32;
 $b-color: #18206f;
 
+//fuentes
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 
 body {
     background-color: $morado !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-size: 18px !important;
+    p,li,span,div {
+        font-size: 1em ;
+    }
 }
 .navbar {
     background-color: $oscuro;
@@ -25,5 +34,36 @@ body {
     .btn-primary {
         background-color: $b-color;
         border-color: $b-color;
+    }
+    .card.detail {
+        position: relative;
+        overflow: hidden;
+        justify-content: center;
+        background-color: #000;
+        .image {
+            
+            img {
+                width: 100%;
+                filter: blur(8px);
+                transform: scale(1.1);
+                opacity: .5;
+            }
+        }
+        .header {
+            width: 100%;
+            padding: 10px 20px;
+            height: 300px;
+        }
+        .text-wrapper {
+            padding: 50px 70px;
+            position: absolute;
+            align-items: center;
+            p,h1,h3 {
+                color: #fff;
+            }
+            .col {
+                padding-left: 30px;
+            }
+        }
     }
 }
