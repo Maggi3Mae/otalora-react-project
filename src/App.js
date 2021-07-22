@@ -6,10 +6,11 @@ import ItemDetailContainer from './componentes/ItemDetailContainer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' //es as le camba el nombre
 
 function App() {
+  //adentro del switch van solamente los que se van a switchear 
   let saludo = "Hola, estas entrando en la mejor tienda del mundo mundial"
   return (
     <Router>
-        <NavBar />
+      <NavBar /> 
       <Switch>      
         <Route exact path="/">
            <ItemListContainer greeting={saludo}/>
