@@ -12,8 +12,9 @@ const handleCount =(amou)=> {
     alert(`Usted ha agregado ${amou} items al carrito`)
 }
 //importo el array y la promesa desde el mock
-function ItemListContainer({greeting}) {
+function ItemListContainer({greeting}) {    
     const [gameItems, setGameItems] = useState([])
+    
     useEffect(() => {
             getItems()
             .then((result)=>{
@@ -22,8 +23,10 @@ function ItemListContainer({greeting}) {
             })
             .catch((err)=> {
                 console.log(err);
-            })        
+            })
+                  
     }, [])
+
     return (
         <Container>
             {[
