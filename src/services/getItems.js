@@ -43,6 +43,37 @@ const GameList = [
         backImg: "https://images.igdb.com/igdb/image/upload/t_screenshot_big/i9ys3zdhph1mh3futdit.jpg",
         category: "xbox-one",
         categoryName: "Xbox One"
+    },
+    {
+        id: "5", 
+        title: "Chrono Trigger",
+        price: 53500,
+        picUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2eqc.jpg",
+        sumary: "In this turn-based Japanese RPG, young Crono must travel through time through a misfunctioning teleporter to rescue his misfortunate companion and take part in an intricate web of past and present perils. The adventure that ensues soon unveils an evil force set to destroy the world, triggering Crono's race against time to change the course of history and bring about a brighter future.",
+        backImg: "https://images.igdb.com/igdb/image/upload/t_screenshot_big/wvwfadurcwwwayhcuvxk.jpg",
+        category: "nintendo-switch",
+        categoryName: "Nintendo Switch"
+    },
+    {
+        id: "6", 
+        title: "God of War",
+        price: 230350,
+        picUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
+        sumary: "It is a new beginning for Kratos. Living as a man, outside the shadow of the gods, he seeks solitude in the unfamiliar lands of Norse mythology. With new purpose and his son at his side, Kratos must fight for survival as powerful forces threaten to disrupt the new life he has created...",
+        backImg: "https://images.igdb.com/igdb/image/upload/t_screenshot_big/o4mg2wvhlcikaogvvzqe.jpg",
+        category: "ps4",
+        categoryName: "Play Station"
+    }
+    ,
+    {
+        id: "7", 
+        title: "Red Dead Redemption 2",
+        price: 5156350,
+        picUrl: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.jpg",
+        sumary: "Developed by the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America’s unforgiving heartland. The game's vast and atmospheric world will also provide the foundation for a brand new online multiplayer experience.",
+        backImg: "https://images.igdb.com/igdb/image/upload/t_screenshot_big/banftd8fgfytbsfx6mjz.jpg",
+        category: "xbox-one",
+        categoryName: "Xbox One "
     }
     
 ];

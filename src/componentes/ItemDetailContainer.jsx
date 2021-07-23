@@ -28,7 +28,7 @@ function ItemDetailContainer() {
         
 
     return (
-        <Container>            
+        <Container fluid className="detail p-0 m-0">            
             <ItemDetail item={itemGame}  />
         </Container> 
     )

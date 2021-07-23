@@ -1,13 +1,14 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap'
 import CartWidget from './CartWidget'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+import Logo from './../images/logo-main.png'
 
 function NavBar() {
     return (
-        <Navbar expand="lg">
-        <Link to="/" className="navbar-brand">
-            TokenStore 
+        <Navbar expand="lg" className="pt-0 pb-0">
+        <Link to="/" className="navbar-brand p-0">
+        <img src={Logo}alt="Token Store"/>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
