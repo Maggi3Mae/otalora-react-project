@@ -16,7 +16,7 @@ function ItemCount({initial, stock, onAdd}) {
     }
      return (
         <>
-            <Card className="offset-sm-4 col-sm-4">
+            <Card className="col-6">
                <Card.Body>
                    <div className="d-flex flex-row justify-content-between mb-4 align-items-center">
                     <Button onClick={handleRemove} variant="outline-danger" className="mr-2 ">

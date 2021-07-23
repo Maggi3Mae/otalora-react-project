@@ -1,15 +1,19 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+
 
 
 //acá se da forma al componente
-const Item = ({ item }) => { {    
+const Item = ({ item }) => { { 
+
     return (
         <div className="col-sm-3 mb-4">
             <Card  id={item.id} style={{height:"100%"}} >
-            <a href={item.gameUrl} target={"_blank"}>
+            <Link to={`/detail/${item.id}`}>
                 <Card.Img variant="top" src={item.picUrl}/>
-            </a>
+            </Link>
             <Card.Body className="d-flex justify-content-between flex-column">
                 <div> {/*este div es solo para que el botón me quede al final de la caja con flex*/}
                 <Card.Title>
@@ -19,7 +23,7 @@ const Item = ({ item }) => { {
                     <h5>${item.price} COP</h5>
                 </Card.Text>
                 </div>
-                <Button variant="primary" target={"_blank"} href={item.gameUrl}>Ver más</Button>
+                <Link to={`/detail/${item.id}`}><Button variant="primary">Ver más</Button></Link>
             </Card.Body>
             </Card>
         </div>

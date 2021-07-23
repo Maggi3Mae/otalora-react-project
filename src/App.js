@@ -7,16 +7,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' //es a
 
 function App() {
   //adentro del switch van solamente los que se van a switchear 
-  let saludo = "Hola, estas entrando en la mejor tienda del mundo mundial"
   return (
     <Router>
       <NavBar /> 
       <Switch>      
-        <Route exact path="/">
-           <ItemListContainer greeting={saludo}/>
-        </Route>  
-        <Route exact path="/category" component={ItemDetailContainer} />
-        <Route exact path="/category/:categoryId" component={ItemDetailContainer} />
+        <Route exact path="/" component={ItemListContainer} />
+        <Route exact path="/category/:categoryId" component={ItemListContainer} />
+        <Route exact path="/detail/:detailId" component={ItemDetailContainer} />
       </Switch>
     </Router>
   );

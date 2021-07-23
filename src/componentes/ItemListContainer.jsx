@@ -1,21 +1,18 @@
 import React from 'react';
-import { Alert, Container } from 'react-bootstrap';
-import ItemCount from './ItemCount';
+import { Container } from 'react-bootstrap';
 import ItemList from './ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Clase from './Clase';
 import { getItems } from '../services/getItems';
+import {useParams} from 'react-router-dom'
 
-
-const handleCount =(amou)=> {
-    alert(`Usted ha agregado ${amou} items al carrito`)
-}
 //importo el array y la promesa desde el mock
-function ItemListContainer({greeting}) {    
-    const [gameItems, setGameItems] = useState([])
-    
+function ItemListContainer() {  
+    const { categoryId } = useParams()
+    const [gameItems, setGameItems] = useState([])    
     useEffect(() => {
+        if (categoryId===undefined) { //acá le digo que si es indefinido el parametro de la url cargue todo
             getItems()
             .then((result)=>{
                 setGameItems(result)
@@ -23,21 +20,21 @@ function ItemListContainer({greeting}) {
             })
             .catch((err)=> {
                 console.log(err);
+            }) 
+        }  else { //y acpa que si no lo es que me cargue los de la categoría
+            getItems()
+            .then((result)=>{
+                setGameItems(result.filter(it => it.category === categoryId))
+                console.log("cargo las ategorías");
             })
-                  
-    }, [])
-
+            .catch((err)=> {
+                console.log(err);
+            }) 
+        }                          
+    }, [categoryId])
+    //console.log(categoryId)
     return (
         <Container>
-            {[
-            'warning',
-            ].map((variant, idx) => (
-            <Alert className="mt-5" key={idx} variant={variant}> 
-                {greeting}
-            </Alert>
-            ))}
-            {/* acá empieza elcontador*/}
-            <ItemCount stock={10} initial={1} onAdd={handleCount}/>
             {/* acá empieza el item list*/}
             <ItemList gameArray={gameItems}/>
             {/* esto es para los ejercicios de las clases*/}
