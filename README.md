@@ -9,6 +9,11 @@ TokenStore es un e-comerce realizado con React JS, es un proyecto desarollado co
 ### Idea
 La idea inicial es realizar un e-comerce para la compra de videojuegos
 
+#### Navegación
+
+![Navegaion](https://github.com/Maggi3Mae/otalora-react-project/blob/main/TokenStore.gif?raw=true)
+
+
 ### Intalación
 Clonar el repositorio en github
 
