@@ -80,7 +80,7 @@ const GameList = [
     const promise = new Promise((resolve, reject) =>{
         setTimeout(() => {
             resolve(GameList);
-        },2000);
+        }, 2000);
         //si cambio este timeout a menor tiempo, no carga nada y sale en consola el mensaje
         setTimeout(() => {
             reject("No funciona, pero que triste eso")
