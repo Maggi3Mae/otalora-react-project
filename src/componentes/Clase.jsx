@@ -1,6 +1,6 @@
-/* import React, { useEffect, useState } from 'react'
+ 
 
-
+/*
 function Clase() {
  const [Pokemon, setPokemon] = useState([]) //esto tiene que ser un array!
     useEffect(() => {
@@ -29,10 +29,25 @@ function Clase() {
 export default Clase */
 import React from 'react'
 
-function Clase() {
+function Clase () {
+/* function handle (e) {
+    console.log(e.target.value) //con esto me muestra el valor del input
+    //e.preventDefault() esto detiene el evento por defecto
+} */
+   
+    const handleKey = (e) => { //así evito que se ingrese la letra a
+        if(e.key==='a') {
+            e.preventDefault()
+        }   
+        if(e.key==='e') {
+            e.preventDefault()
+        } 
+        console.log(e.key);     
+    }
+    
     return (
         <div>
-            
+          <input onKeyDown = {handleKey} ></input>
         </div>
     )
 }

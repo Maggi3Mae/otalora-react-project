@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 
 const handleCount = (amou) => {
@@ -7,6 +7,7 @@ const handleCount = (amou) => {
 };
 
 function ItemDetail({ item }) {
+
   //acá lo mapeo
   return (
     <>
