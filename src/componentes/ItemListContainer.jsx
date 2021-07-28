@@ -38,7 +38,7 @@ function ItemListContainer() {
             {/* acá empieza el item list*/}
             <ItemList gameArray={gameItems}/>
             {/* esto es para los ejercicios de las clases*/}
-            <Clase /> 
+            {/* <Clase />  */}
         </Container> 
     )
 }

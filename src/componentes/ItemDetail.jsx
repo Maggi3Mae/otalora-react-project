@@ -1,39 +1,24 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import ItemCount from "./ItemCount";
+import {useState} from 'react'
+import Detail from './Detail'
+import ItemCount from './ItemCount'
 
-const handleCount = (amou) => {
-  alert(`Usted ha agregado ${amou} items al carrito`);
-};
 
-function ItemDetail({ item }) {
 
+function ItemDetail() {
+  const [totalItems, setTotalItems] = useState(1)  
+  const [cart, setCart] = useState(false)
+  const handleCount = (amou) => { 
+      setTotalItems(amou)  //en amount guardo la cantidad de productos  
+      setCart(true) 
+    };
+ 
   //acá lo mapeo
   return (
     <>
-      {item.map((obj) => (
-        <>
-          <div className="image">
-            <img src={obj.backImg}></img>
-          </div>
-          <Container >
-            <div className="text-wrapper row">
-                <div className="d-inline-flex cover-image">
-                    <img src={obj.picUrl}></img>
-                </div>
-                <div className="col">
-                    <h1>{obj.title}</h1>
-                    <p>{obj.sumary}</p>
-                    <h3>Precio: ${obj.price} COP</h3>
-                    {/* acá empieza elcontador*/}
-                    <ItemCount stock={10} initial={1} onAdd={handleCount} />
-                </div>
-            </div>
-          </Container>
-        </>
-      ))}
+      <Detail />
+      <ItemCount  onAdd={handleCount} cart={cart} total={totalItems} />      
     </>
-  );
+  ) 
 }
 
 export default ItemDetail;
