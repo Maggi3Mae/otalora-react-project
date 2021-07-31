@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import { getItems } from '../services/getItems';
 import { useParams } from 'react-router-dom'
 
-
 function Detail() {
-    const { detailId } = useParams() //esto me toma el valor después de / en la url u lo guarda en la constante detailId
+  
+   const { detailId } = useParams() //esto me toma el valor después de / en la url u lo guarda en la constante detailId
     const [gameItems, setGameItems] = useState([])
       //acá uso el mock para que todo el array quede en 1 solo archivo y lo importo arriba
   useEffect(() => {

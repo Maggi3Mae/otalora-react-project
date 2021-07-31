@@ -1,22 +1,20 @@
-import {useState} from 'react'
+import {useState } from 'react'
 import Detail from './Detail'
 import ItemCount from './ItemCount'
 
 
-
 function ItemDetail() {
-  const [totalItems, setTotalItems] = useState(1)  
-  const [cart, setCart] = useState(false)
-  const handleCount = (amou) => { 
-      setTotalItems(amou)  //en amount guardo la cantidad de productos  
-      setCart(true) 
+
+  const [cartFull, setCartFull] = useState(false) //le indico al botón que el carro tiene productos
+  const handleCount = () => { 
+      setCartFull(true) // en el clic seteo que tiene productos con un verdadero
     };
- 
+
   //acá lo mapeo
   return (
     <>
-      <Detail />
-      <ItemCount  onAdd={handleCount} cart={cart} total={totalItems} />      
+        <Detail />
+        <ItemCount  onAdd={handleCount} cartFull={cartFull}  />    
     </>
   ) 
 }

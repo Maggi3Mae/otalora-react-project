@@ -1,27 +1,41 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Card } from 'react-bootstrap'
 import {Button, Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {CartContext} from './../context/cartContext';
+import GameList from "./../services/getItems";
 
-
-function ItemCount({stock=10, initial=1, onAdd, cart}) {
+function ItemCount({stock=10, initial=1, onAdd, cartFull}) {
+    //context
+    const {cart, setCart} = useContext(CartContext)
+    const addToCart = id => {
+        const findProduct = GameList.find(product => product.id === id);    
+        setCart([
+          ...cart,
+          findProduct
+        ])
+        console.log(findProduct)
+      }
+    //context
+    //contador
     const [amount, setAmount] = useState(initial)
     const handleAdd = () =>{
         if (amount<stock){
-            setAmount(amount+1)
+            setAmount(amount+1)//esto aumento la variale que miestra la cantidad
         }
     }
     const handleRemove = () =>{
         if (amount>initial){
-            setAmount(amount-1)
+            setAmount(amount-1) //esto reduce la variable que muiestra la cantidad
         }
     }
     let minus = document.getElementById("delete"); //con esto me aseguro que el usuario no puede agregar más items después de agregar al carrito
     let add = document.getElementById("add");
-    if (cart === true) {
+    if (cartFull === true) {
         minus.style.display = "none";
         add.style.display = "none";
     }
+    //contador
      return (
         <Container>
             <Card className="offset-md-4 col-md-4 ">
@@ -36,8 +50,8 @@ function ItemCount({stock=10, initial=1, onAdd, cart}) {
                     </Button>
                 </div>
                 { //acá uso un if terniario para validar, si es falso me muestra agregar al carrito, si es verdadero me muestra el terminar la compra
-                    cart ? 
-                    <Link to={`/cart`}><Button variant="warning" style={{width: "100%"}}>Ver carrito ( <b>{amount}</b> ) items </Button></Link>
+                    cartFull ? 
+                    <Link to={`/cart`}><Button variant="warning" onClick={()=>addToCart(GameList.id)} style={{width: "100%"}}>Ver carrito ( <b>{amount}</b> ) items </Button></Link>
                     :
                     <Button variant="success" onClick={()=>onAdd(amount)} style={{width: "100%"}}>Agregar al carrito {amount} items </Button>
                 }

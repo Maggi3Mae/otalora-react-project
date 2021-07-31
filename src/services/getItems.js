@@ -90,3 +90,5 @@ const GameList = [
     export const getItems =()=> {
         return promise
     }
+
+    export default GameList
