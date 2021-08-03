@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import React, {  useContext } from 'react';
 import ItemDetail from './ItemDetail';
- //si se exporta por default va con llaves y solo se puede uno
+ //si se exporta por default va sin llaves y solo se puede uno
 
 
 

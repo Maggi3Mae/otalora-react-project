@@ -6,7 +6,6 @@ import ItemDetailContainer from './componentes/ItemDetailContainer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' //es as le camba el nombre
 import Cart from './componentes/Cart';
 import CartContextProvider from "./context/cartContext"
-import ProductContextProvider from "./context/cartContext"
 
 
 function App() {
