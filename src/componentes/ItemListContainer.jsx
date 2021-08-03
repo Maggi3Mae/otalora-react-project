@@ -16,7 +16,7 @@ function ItemListContainer() {
             getItems()
             .then((result)=>{
                 setGameItems(result)
-                console.log("Cargo cards a los 2 sg");
+               // console.log("Cargo cards a los 2 sg");
             })
             .catch((err)=> {
                 console.log(err);
@@ -25,7 +25,7 @@ function ItemListContainer() {
             getItems()
             .then((result)=>{
                 setGameItems(result.filter(it => it.category === categoryId))
-                console.log("cargo las ategorías");
+                //console.log("cargo las ategorías");
             })
             .catch((err)=> {
                 console.log(err);

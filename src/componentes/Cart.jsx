@@ -9,9 +9,12 @@ function Cart() {
         <div>
             
                 <Container>
-                    <h1 className="mt-5" style={{color: "white"}}>Estas entrando a mi cart pero todavía no esta :(</h1>
+                    <h1 className="mt-5" style={{color: "white"}}>Estas entrando a mi cart pero esta en construcción</h1>
                         {cart.map((obj) => (
-                       <p style={{color: "white"}}>{obj.item}</p>
+                        <li style={{color: "white"}}>
+                            <span  key={obj.item.id}>{obj.item.title}</span> |
+                            <span> {obj.quantity}</span>
+                        </li>
                     ))}
                 </Container>
         </div>
