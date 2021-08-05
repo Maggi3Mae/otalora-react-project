@@ -7,11 +7,13 @@ import Clase from './Clase';
 import { getItems } from '../services/getItems';
 import {useParams} from 'react-router-dom'
 
+
 //importo el array y la promesa desde el mock
 function ItemListContainer() {  
     const { categoryId } = useParams()
     const [gameItems, setGameItems] = useState([])    
     useEffect(() => {
+
         if (categoryId===undefined) { //acá le digo que si es indefinido el parametro de la url cargue todo
             getItems()
             .then((result)=>{
