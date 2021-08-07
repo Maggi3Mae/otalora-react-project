@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore'
+import firebase from 'firebase'
+import 'firebase/firestore' 
 
 // Your web app's Firebase configuration
   let firebaseConfig = {
@@ -13,10 +13,6 @@ import 'firebase/firestore'
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
 
-  export function getFirebase() {
-        return app
-  }
+export const getFirebase = () => app
 
-  export function getFirestore() {
-        return firebase.firestore
-  }
+export const getFirestore = () => firebase.firestore(app)
