@@ -25,7 +25,7 @@ function Cart() {
             
         ))
          
-        if (newCart.length>0) {
+        if (newCart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
             setCartLength(true)
         }
     }, cart, newCart)
