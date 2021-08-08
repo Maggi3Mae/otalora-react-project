@@ -9,26 +9,25 @@ function Cart() {
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState(0)
     const [newCart, setNewCart] = useState(cart)
-    const delteGame = (game) => {
-      let index = newCart.findIndex(i=>i.item.id === game.item.id)
-      newCart.splice(index,1)
-      setNewCart(cart)   
-    }
     console.log(newCart);
-    useEffect(() => {  
-        
+            const delteGame = (game) => {
+            let index = newCart.findIndex(i=>i.item.id === game.item.id)
+            newCart.splice(index,1)
+            setNewCart(cart)   
+          }
+    useEffect(() => {          
         setTotalCart( //con esto creo une nuevo array con solo los valores
             cart.map((game) => {
                 let value = game.quantity*game.item.price
                 return value
             }
             
-        ))
+        ))      
          
         if (newCart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
             setCartLength(true)
         }
-    }, cart, newCart)
+    }, [cart, newCart])
     
 
     return (
