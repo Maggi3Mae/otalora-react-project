@@ -122,3 +122,21 @@ body {
     }
   }
 }
+
+.cart {
+  .card {
+    flex-direction: row;
+    img {
+      width: 100px;
+      height: auto;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 30px 50px;
+      justify-content: space-between;
+      .price {
+        text-align: right;
+      }
+    }
+  }
+}

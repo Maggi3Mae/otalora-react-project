@@ -1,21 +1,62 @@
 import { Container } from "react-bootstrap"
-import {useContext} from 'react'
+import {useContext, useState,useEffect} from 'react'
 import {CartContext} from './../context/cartContext';
+import {Card, Button} from 'react-bootstrap'
 
 function Cart() {
     const {cart} = useContext(CartContext)
-    console.log(cart);
+    
+    const [cartLength, setCartLength] = useState(false) 
+    const [totalCart, setTotalCart] = useState(0)
+    const [newCart, setNewCart] = useState(cart)
+    const delteGame = (game) => {
+      let index = newCart.findIndex(i=>i.item.id === game.item.id)
+      newCart.splice(index,1)
+      setNewCart(cart)   
+    }
+    console.log(newCart);
+    useEffect(() => {  
+        
+        setTotalCart( //con esto creo une nuevo array con solo los valores
+            cart.map((game) => {
+                let value = game.quantity*game.item.price
+                return value
+            }
+            
+        ))
+         
+        if (newCart.length>0) {
+            setCartLength(true)
+        }
+    }, cart, newCart)
+    
+
     return (
         <div>
             
-                <Container>
-                    <h1 className="mt-5" style={{color: "white"}}>Estas entrando a mi cart pero esta en construcción</h1>
-                        {cart.map((obj) => (
-                        <li style={{color: "white"}}>
-                            <span  key={obj.item.id}>{obj.item.title}</span> |
-                            <span> {obj.quantity}</span>
-                        </li>
+                <Container className="cart">
+
+                   {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1>El carrito esta vacío</h1>}
+
+                        {newCart.map((game) => (                        
+                        <Card className="mb-4">
+                            <Card.Img variant="top" src={game.item.picUrl} />
+                            <Card.Body className="row">
+                                <div className="details">
+                                <h5>{game.item.title}</h5>
+                                <p>Cantidad: {game.quantity}</p>
+                                <Button onClick={()=>delteGame(game)} variant="danger"><i class="fas fa-trash-alt"></i></Button>
+                                </div>
+                                
+                                <div className="price">
+                                    <p class="small">${game.item.price} C/U</p>                                   
+                                    <p>Total ${game.item.price*game.quantity}</p>
+                                </div>
+
+                            </Card.Body>
+                        </Card>
                     ))}
+                    {cartLength? <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p> : undefined}
                 </Container>
         </div>
     )
