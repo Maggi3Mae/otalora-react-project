@@ -4,17 +4,17 @@ import {CartContext} from './../context/cartContext';
 import {Card, Button} from 'react-bootstrap'
 
 function Cart() {
-    const {cart} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
     
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState(0)
-    const [newCart, setNewCart] = useState(cart)
-    console.log(newCart);
-            const delteGame = (game) => {
-            let index = newCart.findIndex(i=>i.item.id === game.item.id)
-            newCart.splice(index,1)
-            setNewCart(cart)   
-          }
+    //const [newCart, setNewCart] = useState(cart)
+   // console.log(newCart);
+    const delteGame = (game) => {
+        let index = cart.findIndex(i=>i.item.id === game.item.id)
+        cart.splice(index,1)
+                  setCart([...cart])   
+                }
     useEffect(() => {          
         setTotalCart( //con esto creo une nuevo array con solo los valores
             cart.map((game) => {
@@ -24,10 +24,10 @@ function Cart() {
             
         ))      
          
-        if (newCart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
+        if (cart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
             setCartLength(true)
         }
-    }, [cart, newCart])
+    }, [cart])
     
 
     return (
@@ -37,7 +37,7 @@ function Cart() {
 
                    {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1>El carrito esta vacío</h1>}
 
-                        {newCart.map((game) => (                        
+                        {cart.map((game) => (                        
                         <Card className="mb-4">
                             <Card.Img variant="top" src={game.item.picUrl} />
                             <Card.Body className="row">
