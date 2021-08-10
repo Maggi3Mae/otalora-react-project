@@ -8,7 +8,7 @@ function CartWidget() {
     return (
         <div className="ml-3">
            {cart.length>0?
-           <Link to="/cart"><i className="fas fa-shopping-cart"></i></Link>
+           <Link to="/cart"><span>{cart.length}</span><i className="fas fa-shopping-cart"></i></Link>
            :
            undefined} 
         </div>

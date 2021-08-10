@@ -7,9 +7,9 @@ function Cart() {
     const {cart, setCart} = useContext(CartContext)
     
     const [cartLength, setCartLength] = useState(false) 
-    const [totalCart, setTotalCart] = useState(0)
+    const [totalCart, setTotalCart] = useState([])
     //const [newCart, setNewCart] = useState(cart)
-   // console.log(newCart);
+   console.log(totalCart);
     const delteGame = (game) => {
         let index = cart.findIndex(i=>i.item.id === game.item.id)
         cart.splice(index,1)
@@ -22,12 +22,12 @@ function Cart() {
                 return value
             }
             
-        ))      
+        ))  
          
         if (cart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
             setCartLength(true)
         }
-    }, [cart])
+    }, [cart, cartLength])
     
 
     return (
