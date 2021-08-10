@@ -8,6 +8,7 @@ function Cart() {
     
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState([])
+   
     //const [newCart, setNewCart] = useState(cart)
    console.log(totalCart);
     const delteGame = (game) => {
@@ -29,7 +30,9 @@ function Cart() {
         }
     }, [cart, cartLength])
     
-
+    const total =()=> {
+        totalCart.reduce(function(a, b){ return a + b; })
+    }
     return (
         <div>
             
@@ -55,7 +58,7 @@ function Cart() {
                             </Card.Body>
                         </Card>
                     ))}
-                    {cartLength? <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p> : undefined}
+                    {cartLength? <p style={{color: "white", textAlign:"right"}}>Total a pagar ${total}</p> : undefined}
                 </Container>
         </div>
     )
