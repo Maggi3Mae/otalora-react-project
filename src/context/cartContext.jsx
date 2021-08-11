@@ -7,9 +7,6 @@ const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const {items} = useContext(ProductContext)
 
-       
-
-
     const isInCart = (id) => {
         return cart.find((item)=>{ //acá defino si el id esta en el arrray para que me regrese un falso o el id
             if(item.item.id !== id){

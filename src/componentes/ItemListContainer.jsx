@@ -14,7 +14,7 @@ function ItemListContainer() {
     const [gameItems, setGameItems] = useState([])    
     useEffect(() => {      
        
-
+        //acá no uso el context más que todo para tener un registro del .where
          if (categoryId===undefined) { //acá le digo que si es indefinido el parametro de la url cargue todo
             const dbQuery = getFirestore()
             dbQuery.collection('gameList').get()

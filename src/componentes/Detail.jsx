@@ -1,23 +1,18 @@
 import { Button, Container } from 'react-bootstrap'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { getItems } from '../services/getItems';
 import { useParams } from 'react-router-dom'
+import {ProductContext} from './../context/productContext';
 import {getFirestore} from '../services/FirebaseService'
 
 function Detail() {
   
    const { detailId } = useParams() //esto me toma el valor después de / en la url u lo guarda en la constante detailId
-    const [gameItems, setGameItems] = useState({})
-      //acá uso el mock para que todo el array quede en 1 solo archivo y lo importo arriba
-    useEffect(() => {
-      const dbQuery = getFirestore()
-      dbQuery.collection('gameList').where('id','==', detailId).get()
-      .then(resp => setGameItems(resp.docs.map(i => ({...i.data(), id:i.id}))))
-      .catch((err)=> {
-          console.log(err);
-        })
-    }, [detailId])
-  console.log(gameItems)
+    //const [gameItems, setGameItems] = useState({})
+  
+    const {items} = useContext(ProductContext)
+    const gameItems = items.find(id => id.id === detailId) //con esto solo me traigo un objeto
+   console.log(gameItems)
     return (
         <>
           <div className="image">

@@ -8,13 +8,13 @@ function Cart() {
     
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState([])
-    
-    //const [newCart, setNewCart] = useState(cart)
+    const [priceTotal, setPriceTotal] =useState([])
    console.log(totalCart);
     const delteGame = (game) => {
         let index = cart.findIndex(i=>i.item.id === game.item.id)
         cart.splice(index,1)
-                  setCart([...cart])   
+        setCart([...cart])   
+        setCartLength(false)
                 }
     useEffect(() => {          
         setTotalCart( //con esto creo une nuevo array con solo los valores
