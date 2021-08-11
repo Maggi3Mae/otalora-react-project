@@ -36,7 +36,7 @@ function Cart() {
             
                 <Container className="cart">
 
-                   {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1>El carrito esta vacío</h1>}
+                   {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1 style={{color: "white"}}  className="mt-5">El carrito esta vacío</h1>}
 
                         {cart.map((game) => (                        
                         <Card className="mb-4">
