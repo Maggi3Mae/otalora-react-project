@@ -8,14 +8,13 @@ function Cart() {
     
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState([])
-    const [priceTotal, setPriceTotal] =useState([])
-   console.log(totalCart);
+   //console.log(totalCart);
     const delteGame = (game) => {
         let index = cart.findIndex(i=>i.item.id === game.item.id)
         cart.splice(index,1)
         setCart([...cart])   
         setCartLength(false)
-                }
+        }
     useEffect(() => {          
         setTotalCart( //con esto creo une nuevo array con solo los valores
             cart.map((game) => {
@@ -39,7 +38,7 @@ function Cart() {
                    {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1 style={{color: "white"}}  className="mt-5">El carrito esta vacío</h1>}
 
                         {cart.map((game) => (                        
-                        <Card className="mb-4">
+                        <Card className="mb-4" key={game.id}>
                             <Card.Img variant="top" src={game.item.picUrl} />
                             <Card.Body className="row">
                                 <div className="details">

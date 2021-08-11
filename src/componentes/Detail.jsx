@@ -1,9 +1,7 @@
 import { Button, Container } from 'react-bootstrap'
-import { useEffect, useState, useContext } from 'react'
-import { getItems } from '../services/getItems';
+import {  useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import {ProductContext} from './../context/productContext';
-import {getFirestore} from '../services/FirebaseService'
 
 function Detail() {
   
@@ -12,7 +10,7 @@ function Detail() {
   
     const {items} = useContext(ProductContext)
     const gameItems = items.find(id => id.id === detailId) //con esto solo me traigo un objeto
-   console.log(gameItems)
+   //console.log(gameItems)
     return (
         <>
           <div className="image">

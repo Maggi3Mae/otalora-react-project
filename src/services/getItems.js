@@ -1,4 +1,4 @@
-//Acá cargo el array y la promesa
+/* //Acá cargo el array y la promesa
 const GameList = [
     {
         id: "1", 
@@ -91,4 +91,4 @@ const GameList = [
         return promise
     }
 
-    export default GameList
+    export default GameList */

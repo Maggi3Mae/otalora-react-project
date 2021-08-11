@@ -32,7 +32,7 @@ function ItemListContainer() {
             })
         }                         
     }, [categoryId])
-    console.log(gameItems);
+   // console.log(gameItems);
     return (
         <Container>
             {/* acá empieza el item list*/}
