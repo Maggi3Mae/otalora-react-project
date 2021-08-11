@@ -4,7 +4,6 @@ import {CartContext} from './../context/cartContext';
 
 function CartWidget() {
     const {cart} = useContext(CartContext)
-    console.log(cart);
     return (
         <div className="ml-3">
            {cart.length>0?

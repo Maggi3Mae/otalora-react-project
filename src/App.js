@@ -7,11 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom' //es a
 import Cart from './componentes/Cart';
 import CartContextProvider from "./context/cartContext"
 
-
 function App() {
   //adentro del switch van solamente los que se van a switchear 
   return (
-
     <CartContextProvider>
       <Router>
         <NavBar /> 

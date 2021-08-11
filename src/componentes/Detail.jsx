@@ -2,23 +2,22 @@ import { Button, Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import { getItems } from '../services/getItems';
 import { useParams } from 'react-router-dom'
+import {getFirestore} from '../services/FirebaseService'
 
 function Detail() {
   
    const { detailId } = useParams() //esto me toma el valor después de / en la url u lo guarda en la constante detailId
-    const [gameItems, setGameItems] = useState([])
+    const [gameItems, setGameItems] = useState({})
       //acá uso el mock para que todo el array quede en 1 solo archivo y lo importo arriba
-  useEffect(() => {
-    getItems()
-    .then((result)=>{
-        setGameItems(result.find((i) => i.id === detailId)); //acá lo busco y lo guardo en gameItems
-       // console.log("cargo el detalle a los 2 seg");
-    })
-    .catch((err)=> {
-        console.log(err);
-    })        
-}, [detailId])
-//console.log(gameItems)
+    useEffect(() => {
+      const dbQuery = getFirestore()
+      dbQuery.collection('gameList').where('id','==', detailId).get()
+      .then(resp => setGameItems(resp.docs.map(i => ({...i.data(), id:i.id}))))
+      .catch((err)=> {
+          console.log(err);
+        })
+    }, [detailId])
+  console.log(gameItems)
     return (
         <>
           <div className="image">

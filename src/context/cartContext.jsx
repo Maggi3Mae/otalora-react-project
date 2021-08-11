@@ -1,11 +1,18 @@
-import { createContext,  useState } from 'react'
-
-import GameList from "./../services/getItems";
-
+import { createContext,  useState, useEffect } from 'react'
+import {getFirestore} from '../services/FirebaseService'
 export const CartContext = createContext() //crea contexto, se exporta
 
 const CartContextProvider = ({children}) => {
+    const [gameItems, setGameItems] = useState([])  
     const [cart, setCart] = useState([])
+    useEffect(() => {
+        const dbQuery = getFirestore()
+        dbQuery.collection('gameList').get()
+        .then(resp => setGameItems(resp.docs.map(i => ({...i.data(), id:i.id}))))            
+        .catch((err)=> {
+            console.log(err);
+        }) 
+    }, [])
 
        
 
@@ -21,7 +28,7 @@ const CartContextProvider = ({children}) => {
         })
     }
     const addToCart = (quantity, id) =>  { 
-        var item = GameList.find( game => game.id === id );
+        var item = gameItems.find( game => game.id === id );
         if(isInCart(item.id)){
             let index = cart.findIndex((e) => e.item.id === item.id)
             let oldQ = cart[index].quantity //si esta repetido hace esto, ai estasa la cantidad ue tnía antes          

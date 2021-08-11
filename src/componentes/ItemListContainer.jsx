@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Clase from './Clase';
-import { getItems } from '../services/getItems';
+import {getFirestore} from '../services/FirebaseService'
 import {useParams} from 'react-router-dom'
 
 
@@ -12,29 +12,27 @@ import {useParams} from 'react-router-dom'
 function ItemListContainer() {  
     const { categoryId } = useParams()
     const [gameItems, setGameItems] = useState([])    
-    useEffect(() => {
+    useEffect(() => {      
+       
 
-        if (categoryId===undefined) { //acá le digo que si es indefinido el parametro de la url cargue todo
-            getItems()
-            .then((result)=>{
-                setGameItems(result)
-               // console.log("Cargo cards a los 2 sg");
-            })
+         if (categoryId===undefined) { //acá le digo que si es indefinido el parametro de la url cargue todo
+            const dbQuery = getFirestore()
+            dbQuery.collection('gameList').get()
+            .then(resp => setGameItems(resp.docs.map(i => ({...i.data(), id:i.id}))))            
             .catch((err)=> {
                 console.log(err);
-            }) 
+            })           
+            
         }  else { //y acpa que si no lo es que me cargue los de la categoría
-            getItems()
-            .then((result)=>{
-                setGameItems(result.filter(it => it.category === categoryId))
-                //console.log("cargo las ategorías");
-            })
+            const dbQuery = getFirestore()
+            dbQuery.collection('gameList').where('category','==', categoryId).get()
+            .then(resp => setGameItems(resp.docs.map(i => ({...i.data(), id:i.id}))))
             .catch((err)=> {
                 console.log(err);
-            }) 
-        }                          
+            })
+        }                         
     }, [categoryId])
-    //console.log(categoryId)
+    console.log(gameItems);
     return (
         <Container>
             {/* acá empieza el item list*/}
