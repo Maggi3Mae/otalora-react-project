@@ -1,13 +1,14 @@
-import { Container } from "react-bootstrap"
+
 import {useContext, useState,useEffect} from 'react'
 import {CartContext} from './../context/cartContext';
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, Container} from 'react-bootstrap'
+import FormPurchase from './FormPurchase'
 
 function Cart() {
-    const {cart, setCart} = useContext(CartContext)
-    
+    const {cart, setCart} = useContext(CartContext)    
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState([])
+    const [showForm, setShowForm] = useState(false)
    //console.log(totalCart);
     const delteGame = (game) => {
         let index = cart.findIndex(i=>i.item.id === game.item.id)
@@ -55,7 +56,20 @@ function Cart() {
                             </Card.Body>
                         </Card>
                     ))}
-                    {cartLength? <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p> : undefined}
+                    {cartLength? 
+                    <>
+                        <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p>
+                        <Button onClick={()=>setShowForm(true)}>Terminar compra</Button>
+                        {showForm?
+                            <FormPurchase cart={cart} totalCart={totalCart}/>
+                            :
+                            undefined
+                        }
+                     </>
+                     : 
+                     undefined}
+                    
+
                 </Container>
         </div>
     )
