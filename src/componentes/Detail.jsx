@@ -1,34 +1,41 @@
 import { Button, Container } from 'react-bootstrap'
-import {  useContext } from 'react'
+import {  useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {ProductContext} from './../context/productContext';
+import {getFirestore} from '../services/FirebaseService'
 
 function Detail() {
   
    const { detailId } = useParams() //esto me toma el valor después de / en la url u lo guarda en la constante detailId
-    //const [gameItems, setGameItems] = useState({})
-  
-    const {items} = useContext(ProductContext)
-    const gameItems = items.find(id => id.id === detailId) //con esto solo me traigo un objeto
-   //console.log(gameItems)
+    const [item, setItems] = useState({})
+    useEffect(() => {
+      
+      const dbQuery = getFirestore()
+      dbQuery.collection('gameList').doc(detailId).get()
+      .then(resp => setItems({...resp.data(), id:resp.id}))    
+      .catch((err)=> {
+          console.log(err);
+      })  
+    }, [detailId])
+
+   console.log(item)
     return (
         <>
-          <div className="image">
-            <img src={gameItems.backImg}></img>
+       <div className="image">
+            <img src={item.backImg}></img>
           </div>
           <Container >            
             <div className="text-wrapper row">
                 <div className="d-inline-flex flex-column cover-image">
-                    <img src={gameItems.picUrl} alt={gameItems.title}></img>
+                    <img src={item.picUrl} alt={item.title}></img>
                     <Button className="mt-3" variant="warning" onClick={()=>{window.history.back()}}>Regresar</Button>   
                 </div>
                 <div className="col">
-                    <h1>{gameItems.title}</h1>
-                    <p>{gameItems.sumary}</p>
-                    <h3>Precio: ${gameItems.price} COP</h3>                   
+                    <h1>{item.title}</h1>
+                    <p>{item.sumary}</p>
+                    <h3>Precio: ${item.price} COP</h3>                   
                 </div>
             </div>
-          </Container>            
+          </Container>           
         </>
     )
 }
