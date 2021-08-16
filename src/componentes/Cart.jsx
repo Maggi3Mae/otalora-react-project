@@ -40,7 +40,7 @@ function Cart() {
 
                         {cart.map((game) => (                        
                         <Card className="mb-4" key={game.id}>
-                            <Card.Img variant="top" src={game.item.picUrl} />
+                            <Card.Img variant="top" src={game.item.picUrl} alt={`Portada de ${game.item.title}`} />
                             <Card.Body className="row">
                                 <div className="details">
                                 <h5>{game.item.title}</h5>

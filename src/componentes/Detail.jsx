@@ -10,8 +10,8 @@ function Detail() {
     useEffect(() => {
       
       const dbQuery = getFirestore()
-      dbQuery.collection('gameList').doc(detailId).get()
-      .then(resp => setItems({...resp.data(), id:resp.id}))    
+      dbQuery.collection('gameList').doc(detailId).get() //acá me traigo solo un documento
+      .then(resp => setItems({...resp.data(), id:resp.id}))    //con esto lo dejo como un lindo array
       .catch((err)=> {
           console.log(err);
       })  
