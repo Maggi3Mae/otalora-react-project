@@ -19,7 +19,7 @@ function Detail() {
           <Container >            
             <div className="text-wrapper row">
                 <div className="d-inline-flex flex-column cover-image">
-                    <img src={gameItems.picUrl}></img>
+                    <img src={gameItems.picUrl} alt={gameItems.title}></img>
                     <Button className="mt-3" variant="warning" onClick={()=>{window.history.back()}}>Regresar</Button>   
                 </div>
                 <div className="col">
