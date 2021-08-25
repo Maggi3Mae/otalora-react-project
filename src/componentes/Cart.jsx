@@ -60,12 +60,12 @@ function Cart() {
                     <>
                         <p className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} style={{color: "white", textAlign:"right"}}>Total a pagar ${showPurchase ? undefined : totalCart.reduce(function(a, b){ return a + b; }) }</p>
                         <Button className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} onClick={()=>setShowForm(true)}>Terminar compra</Button>
-                        <Button className="mt-3" variant="warning" onClick={()=>{window.history.back()}}>Regresar</Button> 
                         {showForm?
                             <FormPurchase cart={cart} totalCart={totalCart} setShowPurchase={setShowPurchase}/>
                             :
                             undefined
                         }
+                        
                      </>
                      : 
                      undefined}
