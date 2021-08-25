@@ -9,7 +9,7 @@ const Item = ({item}) => {
             <Card  id={item.id} style={{height:"100%"}} >
             <Link to={`/detail/${item.id}`}>
                 <Card.Img variant="top" src={item.picUrl}/>
-                <i className="fas fa-plus"></i>
+                <i className="fas fa-plus list"></i>
             </Link>
             </Card>
         </div>

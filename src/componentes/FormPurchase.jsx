@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
 import {Form, Button} from 'react-bootstrap'
 import {getFirestore} from '../services/FirebaseService'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/firestore'
+import {CartContext} from './../context/cartContext';
 
  
-function FormPurchase({cart, totalCart}) {
+function FormPurchase({cart, totalCart, setShowPurchase}) {
+    const {setCart} = useContext(CartContext)   
     const [buyer, setBuyer] = useState(intitalState)
     const [loading, setLoading] = useState(false)
     const handleChange =(e)=> {
@@ -26,6 +28,10 @@ function FormPurchase({cart, totalCart}) {
             setLoading(true)
         )
     }
+    const handleDeleteCart =()=> {
+        setShowPurchase(true)
+        setCart([])
+    }
     return (
        
     <>
@@ -43,7 +49,7 @@ function FormPurchase({cart, totalCart}) {
             </Form.Group>
                 <Form.Label>Correo</Form.Label>
                 <Form.Control type="email" placeholder="Correo" name='correo'  value={buyer.email}/>
-            <Button variant="primary" type="submit">
+            <Button onClick={()=>handleDeleteCart()} variant="primary" type="submit">
                 Enviar
             </Button>
         </Form>

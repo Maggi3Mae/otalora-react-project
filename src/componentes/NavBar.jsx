@@ -16,7 +16,7 @@ function NavBar() {
             <NavLink to="/" className="nav-link">
                 Inicio
             </NavLink>
-            <NavDropdown title="Juegos" id="basic-nav-dropdown">
+            <NavDropdown title="Categorías" id="basic-nav-dropdown">
                 <NavLink to="/category/ps4" className="dropdown-item">
                     PS4
                 </NavLink>

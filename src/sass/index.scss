@@ -3,9 +3,10 @@ $morado: #2a0e6a;
 $oscuro: #2a0e6a;
 $b-color: #18206f;
 $box-shadow: 0 0 11px rgba(0, 0, 0, 0.315);
-$yellow: #8cf7b0;
+$green: #8cf7b0;
 $blue: #4ecdc4;
 $pink: #ff6b6b;
+$yellow:#FFC43D;
 
 //fuentes
 
@@ -35,7 +36,7 @@ body {
     background-color: $oscuro;
   }
   .dropdown-item:focus, .dropdown-item:hover, .dropdown-item.active {
-      background-color: $yellow;
+      background-color: $green;
       color: $oscuro !important;
       font-weight: 500;
   }
@@ -46,10 +47,10 @@ body {
       }
   }
   .btn-outline-success {
-    background-color: $yellow;
+    background-color: $green;
     color: $oscuro;
     font-weight: 500;
-    border-color: $yellow;
+    border-color: $green;
     &:hover {
       background-color: #fff;
       color: $oscuro;
@@ -60,10 +61,29 @@ body {
 .container {
   //padding-bottom: 60px;
   .card {
+    position: relative;
     border: none;
     box-shadow: 0 0 10px rgba(#000000, 0.2);
     h4 {
       font-weight: 500;
+    }
+    .fas.fa-plus.list {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 58px;
+      height: 58px;
+      text-align: center;
+      padding: 20px;
+      background-color: $yellow;
+      color: $oscuro;
+      border-radius: 100%;
+      transition: all .25s ease-in-out;
+      box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.5);
+      &:hover {
+        background-color: $blue;
+      }
     }
   }
   .btn-primary {

@@ -9,6 +9,7 @@ function Cart() {
     const [cartLength, setCartLength] = useState(false) 
     const [totalCart, setTotalCart] = useState([])
     const [showForm, setShowForm] = useState(false)
+    const [showPurchase, setShowPurchase] = useState(false)
    //console.log(totalCart);
     const delteGame = (game) => {
         let index = cart.findIndex(i=>i.item.id === game.item.id)
@@ -28,16 +29,17 @@ function Cart() {
         if (cart.length>0) { //con esto determino si hay items en el carritos para saer que mostrar
             setCartLength(true)
         }
+
+
     }, [cart, cartLength])
     return (
-        <div>
-            
+        <div>            
                 <Container className="cart">
 
                    {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1 style={{color: "white"}}  className="mt-5">El carrito esta vacío</h1>}
 
                         {cart.map((game) => (                        
-                        <Card className="mb-4" key={game.item.id}>
+                        <Card className={`mb-4 ${showPurchase ? "d-none" : undefined} `} key={game.item.id}>
                             <Card.Img variant="top" src={game.item.picUrl} alt={`Portada de ${game.item.title}`} />
                             <Card.Body className="row">
                                 <div className="details">
@@ -56,10 +58,10 @@ function Cart() {
                     ))}
                     {cartLength? 
                     <>
-                        <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p>
-                        <Button onClick={()=>setShowForm(true)}>Terminar compra</Button>
+                        <p className={`mb-4 ${showPurchase ? "d-none" : undefined} `} style={{color: "white", textAlign:"right"}}>Total a pagar ${showPurchase ? undefined : totalCart.reduce(function(a, b){ return a + b; }) }</p>
+                        <Button className={`mb-4 ${showPurchase ? "d-none" : undefined} `} onClick={()=>setShowForm(true)}>Terminar compra</Button>
                         {showForm?
-                            <FormPurchase cart={cart} totalCart={totalCart} />
+                            <FormPurchase cart={cart} totalCart={totalCart} setShowPurchase={setShowPurchase}/>
                             :
                             undefined
                         }
