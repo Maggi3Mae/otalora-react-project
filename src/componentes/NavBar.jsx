@@ -28,10 +28,7 @@ function NavBar() {
                 </NavLink>
             </NavDropdown>            
             </Nav>
-            <Form inline>            
-            <FormControl type="text" placeholder="Buscar en la tienda" className="mr-sm-2" />
-            <Button variant="outline-success">Buscar</Button>
-            </Form>
+
         </Navbar.Collapse>
         <CartWidget/> 
         </Navbar>
