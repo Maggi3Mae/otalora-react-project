@@ -47,10 +47,7 @@ function FormPurchase({cart, totalCart, setShowPurchase}) {
         else {
             setValidation(false)
         }        
-    }, [buyer])
-    
-    console.log(validation);
-   
+    }, [buyer])   
     
     return (
        
