@@ -29,8 +29,6 @@ function Cart() {
             setCartLength(true)
         }
     }, [cart, cartLength])
-    
-
     return (
         <div>
             
@@ -39,17 +37,17 @@ function Cart() {
                    {cartLength?<h1 className="mt-5" style={{color: "white"}}>Tu orden</h1> : <h1 style={{color: "white"}}  className="mt-5">El carrito esta vacío</h1>}
 
                         {cart.map((game) => (                        
-                        <Card className="mb-4" key={game.id}>
+                        <Card className="mb-4" key={game.item.id}>
                             <Card.Img variant="top" src={game.item.picUrl} alt={`Portada de ${game.item.title}`} />
                             <Card.Body className="row">
                                 <div className="details">
                                 <h5>{game.item.title}</h5>
                                 <p>Cantidad: {game.quantity}</p>
-                                <Button onClick={()=>delteGame(game)} variant="danger"><i class="fas fa-trash-alt"></i></Button>
+                                <Button onClick={()=>delteGame(game)} variant="danger"><i className="fas fa-trash-alt"></i></Button>
                                 </div>
                                 
                                 <div className="price">
-                                    <p class="small">${game.item.price} C/U</p>                                   
+                                    <p className="small">${game.item.price} C/U</p>                                   
                                     <p>Total ${game.item.price*game.quantity}</p>
                                 </div>
 
@@ -61,7 +59,7 @@ function Cart() {
                         <p style={{color: "white", textAlign:"right"}}>Total a pagar ${totalCart.reduce(function(a, b){ return a + b; })}</p>
                         <Button onClick={()=>setShowForm(true)}>Terminar compra</Button>
                         {showForm?
-                            <FormPurchase cart={cart} totalCart={totalCart}/>
+                            <FormPurchase cart={cart} totalCart={totalCart} />
                             :
                             undefined
                         }

@@ -16,12 +16,10 @@ function Detail() {
           console.log(err);
       })  
     }, [detailId])
-
-   console.log(item)
     return (
         <>
        <div className="image">
-            <img src={item.backImg}></img>
+            <img src={item.backImg} alt={item.title}></img>
           </div>
           <Container >            
             <div className="text-wrapper row">

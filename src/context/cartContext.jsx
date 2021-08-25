@@ -1,5 +1,4 @@
 import { createContext,  useState, useContext } from 'react'
-import {getFirestore} from '../services/FirebaseService'
 import {ProductContext} from './../context/productContext';
 export const CartContext = createContext() //crea contexto, se exporta
 

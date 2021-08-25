@@ -44,12 +44,7 @@ function ItemCount({stock=10, initial=1, onAdd, cartFull}) {
                         <i className="fas fa-plus"></i>
                     </Button>
                 </div>
-                { //acá uso un if terniario para validar, si es falso me muestra agregar al carrito, si es verdadero me muestra el terminar la compra
-                    cartFull ? 
-                    <Link to={`/cart`}><Button variant="warning" onClick={()=>addToCart(amount,detailId)} style={{width: "100%"}}>Ver carrito ( <b>{amount}</b> ) items </Button></Link>
-                    :
-                    <Button variant="success" onClick={()=>onAdd(amount)} style={{width: "100%"}}>Agregar al carrito {amount} items </Button>
-                }
+                   <Link to={`/cart`}><Button variant="success"  onClick={()=>addToCart(amount,detailId)} style={{width: "100%"}}>Agregar al carrito {amount} items </Button></Link>
                 </Card.Body>
             </Card> 
         </Container>

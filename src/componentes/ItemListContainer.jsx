@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import ItemList from './ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Clase from './Clase';
 import {getFirestore} from '../services/FirebaseService'
 import {useParams} from 'react-router-dom'
 
