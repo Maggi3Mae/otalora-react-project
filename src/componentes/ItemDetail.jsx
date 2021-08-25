@@ -1,5 +1,5 @@
 import Detail from './Detail'
-import ItemCount from './ItemCount'
+
 
 
 function ItemDetail() {
@@ -9,7 +9,7 @@ function ItemDetail() {
   return (
     <>
         <Detail />
-        <ItemCount  />    
+          
     </>
   ) 
 }
