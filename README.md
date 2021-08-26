@@ -11,7 +11,7 @@ La idea inicial es realizar un e-comerce para la compra de videojuegos
 
 #### Navegación
 
-![Navegaion](https://github.com/Maggi3Mae/otalora-react-project/blob/main/TokenStore.gif?raw=true)
+![Navegaion](https://github.com/Maggi3Mae/otalora-react-project/blob/main/TokenStoreGIF.gif?raw=true)
 
 
 ### Intalación
