@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {CartContext} from './../context/cartContext';
 import {useParams} from 'react-router-dom'
 
-function ItemCount({stock=10, initial=1, cartFull}) {
+function ItemCount({stock, initial=1, cartFull}) {
     const { detailId } = useParams() //con esto uso el params para detercar el id del detalle y7 con el metodo find
     //context
     const {addToCart} = useContext(CartContext)

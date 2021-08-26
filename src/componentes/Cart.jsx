@@ -58,8 +58,8 @@ function Cart() {
                     ))}
                     {cartLength? 
                     <>
-                        <p className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} style={{color: "white", textAlign:"right"}}>Total a pagar ${showPurchase ? undefined : totalCart.reduce(function(a, b){ return a + b; }) }</p>
-                        <Button className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} onClick={()=>setShowForm(true)}>Terminar compra</Button>
+                        <h3 className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} style={{color: "white", textAlign:"right"}}>Total a pagar {showPurchase ? undefined : <b>${totalCart.reduce(function(a, b){ return a + b; }) }</b>}</h3>
+                        <Button variant="success" className={`mb-4 ${showPurchase ? "d-none" : "d-block"} `} onClick={()=>setShowForm(true)}>Terminar compra</Button>
                         {showForm?
                             <FormPurchase cart={cart} totalCart={totalCart} setShowPurchase={setShowPurchase}/>
                             :

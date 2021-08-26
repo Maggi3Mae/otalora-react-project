@@ -12,6 +12,13 @@ $yellow:#FFC43D;
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 body {
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
   background-color: $morado !important;
   font-family: "Ubuntu", sans-serif !important;
   font-size: 18px !important;
@@ -108,6 +115,13 @@ body {
       opacity: 0.5;
     }
   }
+  .spinner-border  {
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 200px;
+  }
   .container {
     // margin-top: -200px;
     position: relative;
@@ -142,7 +156,14 @@ body {
     }
   }
 }
-
+.not-found {
+  img {
+    max-width: 500px;
+  }
+  h1 {
+    color: #fff;
+  }
+}
 .cart {
   .card {
     flex-direction: row;
@@ -164,3 +185,22 @@ body {
     padding: 30px;
   }
 }
+.cartWidget {
+  position: relative;
+  .fa-shopping-cart  {
+    font-size: 40px;
+  }
+  span {
+    position: absolute;
+    width: 30px;
+    padding: 2px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    background-color: $pink;
+    bottom: -10px;
+    left: -10px;
+    border-radius: 100%;
+  }
+}
+

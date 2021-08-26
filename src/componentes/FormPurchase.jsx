@@ -53,7 +53,7 @@ function FormPurchase({cart, totalCart, setShowPurchase}) {
        
     <>
         {loading? 
-        <p style={{color:"white"}}>Muchas gracias por su compra, quedó registrada con el id <b>{id}</b> </p>
+        <h3 style={{color:"white"}}>Muchas gracias por su compra, quedó registrada con el id <b>{id}</b> </h3>
         :
         <Form className="formPurchase" onChange={handleChange} onSubmit={validation ? handleSubmit : undefined}>
             <Form.Group className="mb-3" >
